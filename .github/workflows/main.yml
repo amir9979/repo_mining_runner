@@ -76,8 +76,14 @@ jobs:
         path: repository_data
 
     - name: create zip
-      run: python -c "import shutil, zipfile, os; zf = zipfile.ZipFile('data.zip', mode='w', allowZip64 = True); list(map(lambda x: list(map(lambda y: zf.write(os.path.join(x[0], y)), x[2])), os.walk('.'))); zf.close()"
+      shell: python
+      run: | 
+        import zipfile, os
+        zf = zipfile.ZipFile('data.zip', mode='w', allowZip64 = True)
+        list(map(lambda x: list(map(lambda y: zf.write(os.path.join(x[0], y)), x[2])), os.walk('.')))
+        zf.close()
       working-directory: repository_data
+      
 
     - name: Upload results to release
       uses: svenstaro/upload-release-action@v1-release
