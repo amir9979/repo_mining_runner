@@ -63,11 +63,6 @@ jobs:
     - name: echo
       run: echo 123 > repository_data\r.txt
 
-    - name: delete repos
-      run: RMDIR /Q /S .
-      working-directory: apache_repos
-
-
     - name: execute
       run: python Main.py -c ${{github.event.issue.title}} -n 3 -s 0 -f
 
@@ -79,14 +74,6 @@ jobs:
         name: repository_data
         # A file, directory or wildcard pattern that describes what to upload
         path: repository_data
-
-    - name: delete repos
-      run: DEL /F /Q /S *.* > NUL
-      working-directory: apache_repos
-
-    - name: delete repos
-      run: RMDIR /Q /S .
-      working-directory: apache_repos
 
     - name: create zip
       run: python -c "import shutil; shutil.make_archive('data', 'zip')"
