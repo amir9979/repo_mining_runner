@@ -67,7 +67,7 @@ jobs:
       run: git config --system core.longpaths true
 
     - name: execute
-      run: python Main.py -c ${{github.event.issue.title}} -n 3 -s 0 -f maven-3.0.1 maven-3.0.5
+      run: python Main.py -c ${{github.event.issue.title}} -n 3 -s 0 -f ${{github.event.issue.body}}
 
     - name: Upload repository_data
       if: ${{ always() }}
