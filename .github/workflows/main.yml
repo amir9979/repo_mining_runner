@@ -73,6 +73,9 @@ jobs:
     - name: longpaths
       run: git config --system core.longpaths true
 
+    - name: ls
+      run: ls -R
+
     - name: execute
       run: python Main.py -c ${{github.event.issue.title}} -n 3 -s 0 -f ${{github.event.issue.body}}
 
