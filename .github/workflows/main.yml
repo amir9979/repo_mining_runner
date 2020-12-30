@@ -62,6 +62,7 @@ jobs:
         pip install javalang
         pip install pathlib
         pip install junitparser
+        pip install python-bugzilla
         pip install -r requirements.txt
 
     - name: javadiff_install
