@@ -78,7 +78,7 @@ jobs:
       run: ls -R
 
     - name: execute
-      run: python Main.py -s 0 -c ${{github.event.issue.title}} -f ${{github.event.issue.body}}
+      run: python Main.py -s 0 -n 5 -c ${{github.event.issue.title}} -f ${{github.event.issue.body}}
 
     - name: Upload repository_data
       if: ${{ always() }}
