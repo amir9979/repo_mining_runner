@@ -18,3 +18,14 @@ jobs:
         stale-pr-label: 'no-pr-activity'
         days-before-stale: 2
         days-before-close: 2
+
+  cycle-weekly-close:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: weekly-issue-closure
+      uses: bdougie/close-issues-based-on-label@master
+      env:
+        LABEL: 'no-issue-activity'
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
