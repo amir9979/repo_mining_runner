@@ -65,6 +65,7 @@ jobs:
         pip install junitparser
         pip install python-bugzilla
         pip install psutil
+        pip install lizard
         pip install -r requirements.txt
 
     - name: javadiff_install
